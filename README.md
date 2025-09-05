@@ -1,2 +1,2 @@
-# pic
-pic projects
+# pic projects
+# author: andlsouza@gmail.com
