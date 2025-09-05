@@ -1,0 +1,12 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F2550 -DL -O11111114 -fo48 -N"I:\PROJETOS\#0KITSPIC\#software\PICTICO_v1p0_Prog_Testes_for_PIC18F2550\LedBlinking.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"I:\PROJETOS\#0KITSPIC\#software\PICTICO_v1p0_Prog_Testes_for_PIC18F2550\" -SP"I:\PROJETOS\#0KITSPIC\#software\KP2840_v1p0_Prog_Testes_for_PIC18F2550\KP2840_v1p0_Led_Blinking_for_PIC18F2550\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Examples\Development Systems\EasyPIC7\Led Blinking\" "LedBlinking.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+warning: 0	1501	Specified search path does not exist: 'I:\PROJETOS\#0KITSPIC\#software\KP2840_v1p0_Prog_Testes_for_PIC18F2550\KP2840_v1p0_Led_Blinking_for_PIC18F2550'	 
+hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	LedBlinking.c
+diagnostics: 45	123	Compiled Successfully	LedBlinking.c
+diagnostics: 0	127	All files Compiled in 78 ms	 
+hint: 0	1144	Used RAM (bytes): 0 (1%)  Free RAM (bytes): 2027 (99%)	Used RAM (bytes): 0 (1%)  Free RAM (bytes): 2027 (99%)
+hint: 0	1144	Used ROM (bytes): 112 (1%)  Free ROM (bytes): 32656 (99%)	Used ROM (bytes): 112 (1%)  Free ROM (bytes): 32656 (99%)
+diagnostics: 0	125	Project Linked Successfully	LedBlinking.mcppi
+diagnostics: 0	128	Linked in 47 ms	 
+diagnostics: 0	129	Project 'LedBlinking.mcppi' completed: 140 ms	 
+diagnostics: 0	103	Finished successfully: 20 jun 2017, 23:37:42	LedBlinking.mcppi

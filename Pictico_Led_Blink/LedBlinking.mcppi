@@ -1,0 +1,52 @@
+[DEVICE]
+Name=P18F2550
+Clock=48000000
+[MEMORY_MODEL]
+Value=0
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=LedBlinking.c
+[USE_EEPROM]
+Value=0
+[EEPROM_DEFINITION]
+Value=
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=0
+[FILES]
+Count=1
+File0=LedBlinking.c
+[BINARIES]
+Count=0
+[IMAGES]
+Count=1
+ActiveImageIndex=0
+[OPENED_FILES]
+Count=1
+File0=LedBlinking.c
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=0
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=5
+Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\
+Path1=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
+Path2=I:\PROJETOS\#0KITSPIC\#software\PICTICO_v1p0_Prog_Testes_for_PIC18F2550\
+Path4=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Examples\Development Systems\EasyPIC7\Led Blinking\
+[HEADER_PATH]
+Count=0
+[HEADERS]
+Count=0
+[PLDS]
+Count=0
+[Useses]
+Count=0
+[EXPANDED_NODES]
+Node0=Sources
+Node1=Image Files
+Count=2
