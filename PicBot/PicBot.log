@@ -1,0 +1,12 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F2550 -DL -O11111114 -fo48 -N"C:\Users\souza\Documents\PicBot\PicBot.mcppi" -SP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\souza\Documents\PicBot\" -IP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "PicBot.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_Sound.mcl"	 
+hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	melodias.h
+diagnostics: 294	123	Compiled Successfully	PicBot.c
+hint: 177	1164	Variable 'duracao' has been eliminated by optimizer	PicBot.c
+diagnostics: 0	127	All files Compiled in 62 ms	 
+hint: 0	1144	Used RAM (bytes): 387 (19%)  Free RAM (bytes): 1640 (81%)	Used RAM (bytes): 387 (19%)  Free RAM (bytes): 1640 (81%)
+hint: 0	1144	Used ROM (bytes): 3070 (9%)  Free ROM (bytes): 29698 (91%)	Used ROM (bytes): 3070 (9%)  Free ROM (bytes): 29698 (91%)
+diagnostics: 0	125	Project Linked Successfully	PicBot.mcppi
+diagnostics: 0	128	Linked in 31 ms	 
+diagnostics: 0	129	Project 'PicBot.mcppi' completed: 281 ms	 
+diagnostics: 0	103	Finished successfully: 10 set 2025, 10:45:35	PicBot.mcppi
