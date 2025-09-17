@@ -8,11 +8,14 @@
  * Revision History:
      v1.0:
        - initial release (ALS);
+     v2.0
+       - Feedback led added on PORTD;
 
  * Description:
      This is a simple UART Send/Receive project. 
      The board receives data from UART and sends it back.
      Used baud rate = 115200 bps.
+     Config the terminal RX LF and TX LF for better experience.
 
  * Test configuration:
      MCU:             PIC18F4620
@@ -27,7 +30,10 @@ char uart_rd;
 
 void main() {
 
-  UART1_Init(115200);               // Initialize UART module at 115200 bps
+  TRISD = 0;                      // set direction to be output on PORTD
+  LATD = 0x00;                    // Turn OFF LEDs on PORTD
+    
+  UART1_Init(115200);             // Initialize UART module at 115200 bps
   Delay_ms(100);                  // Wait for UART module to stabilize
 
   UART1_Write_Text("Start");
@@ -36,8 +42,11 @@ void main() {
 
   while (1) {                     // Endless loop
     if (UART1_Data_Ready()) {     // If data is received,
+      LATD = 0xFF;                // Turn ON LEDs on PORTD
+      Delay_ms(50);               // 1 second delay
       uart_rd = UART1_Read();     // read the received data,
       UART1_Write(uart_rd);       // and send data via UART
+      LATD = 0x00;                // Turn OFF LEDs on PORTD
     }
   }
 }
