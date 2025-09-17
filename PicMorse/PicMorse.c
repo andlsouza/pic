@@ -1,0 +1,86 @@
+/*
+ * Project name:
+     PicMorse (Morse code for KP2840 board with PIC18F4620)
+
+ * Copyright:
+     (c) KitsPiC, 2025.
+
+ * Revision History:
+     v1.0:
+       - initial release (ALS);
+
+ * Description:
+     This is a simple SOS Morse code project.
+     Pic sends a SOS message continuously to the buzzer and led.
+
+ * Test configuration:
+     MCU:             PIC18F4620
+     Dev.Board:       KP2840
+                      www.kitspic.com.br
+     Oscillator:      20.0000 MHz Crystal
+     Ext. Modules:    None.
+     SW:              mikroC PRO for PIC
+ */
+
+#include "notas.h"
+#include "melodias.h"
+
+sbit LED_VERMELHO at RD1_bit; //Led vermelho conectado em RD1
+sbit LED_VERMELHO_Direction at TRISD1_bit; //Controlador de direção da porta RD1
+
+void ioPortsInit()
+{
+ ADCON1 = 0x0F;              //Configurando todas as portas como entradas/saídas digitais (desabilita canais analógicos).
+ LED_VERMELHO_Direction = 0; //Configurando porta RD1 como saída digital.
+ LED_VERMELHO = 0;           //Turn OFF LED
+ Sound_Init(&PORTC, 1);      //Buzzer conectado ao pino RC1
+}
+
+void myDelayMs(int ms)
+{
+  int i = 0;
+  for(i = 0; i <= ms; i++)
+   {
+    Delay_ms(1);
+   }
+}
+
+void piscaLedsMs(int ms)
+{
+  int meio = 0;
+  meio = ms/2;
+  // Turn ON LED:
+  LED_VERMELHO = 1;
+  myDelayMs(meio);
+  // Turn OFF LED:
+  LED_VERMELHO = 0;
+  myDelayMs(meio);
+}
+
+void tocaSOS()
+{
+  int nota = 0;
+  int duracao = 0;
+  int ritmo = 1; //1 = velocidade normal, 2 = velocidade 2x, 4 = velocidade 4x.
+  int ralenta = 1; //velocidade / 1
+
+  for(nota = 0; nota < qtdNotasSOS*2; nota += 2){
+     duracao = (sos[nota + 1]*ralenta) / ritmo;
+     Sound_Play(sos[nota], duracao);
+     piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
+    }
+    
+  myDelayMs(500); //aguarda um tempo de 500ms.
+  
+  //TODO: NO SOUND HERE!
+}
+
+void main() {
+
+     ioPortsInit();  //init ports
+
+     // Endless loop:
+     while (1){
+      tocaSOS();
+     }
+}

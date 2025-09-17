@@ -1,0 +1,35 @@
+//Arquivo de melodias:
+
+/*
+SOS = *.*.*._._._.*.*.*.
+. = FUSA
+* = SEMICOLCHEIA
+_ = COLCHEIA
+freq: ~ 600Hz
+*/
+int sos[]={
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA,
+
+NOTE_D5, COLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, COLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, COLCHEIA,
+PAUSA, FUSA,
+
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA,
+NOTE_D5, SEMICOLCHEIA,
+PAUSA, FUSA
+};
+
+int qtdNotasSOS = sizeof(sos) / sizeof(sos[0]) / 2;
+
+//-----
