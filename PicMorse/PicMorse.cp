@@ -1,28 +1,30 @@
 #line 1 "C:/Users/souza/Documents/PicMorse/PicMorse.c"
 #line 1 "c:/users/souza/documents/picmorse/notas.h"
 #line 1 "c:/users/souza/documents/picmorse/melodias.h"
-#line 10 "c:/users/souza/documents/picmorse/melodias.h"
+#line 13 "c:/users/souza/documents/picmorse/melodias.h"
 int sos[]={
  587 ,  80 ,
  0 ,  40 ,
  587 ,  80 ,
  0 ,  40 ,
  587 ,  80 ,
- 0 ,  40 ,
+
+ 0 ,  80 ,
 
  587 ,  160 ,
  0 ,  40 ,
  587 ,  160 ,
  0 ,  40 ,
  587 ,  160 ,
- 0 ,  40 ,
+
+ 0 ,  80 ,
 
  587 ,  80 ,
  0 ,  40 ,
  587 ,  80 ,
  0 ,  40 ,
  587 ,  80 ,
- 0 ,  40 
+
 };
 
 int qtdNotasSOS = sizeof(sos) / sizeof(sos[0]) / 2;
