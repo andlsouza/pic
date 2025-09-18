@@ -1,7 +1,7 @@
 //Arquivo de notas musicais:
 
 //notas:
-#define PAUSA    0          //TODO: FIX NOISE SOUND...
+#define PAUSA    0
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35

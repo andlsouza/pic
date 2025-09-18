@@ -40,7 +40,7 @@ int missao[]={
 };
 
 int qtdNotasMissao = sizeof(missao) / sizeof(missao[0]) / 2;
-#line 38 "C:/Users/souza/Documents/PicBot/PicBot.c"
+#line 40 "C:/Users/souza/Documents/PicBot/PicBot.c"
 sbit LED_VERMELHO at RC0_bit;
 sbit LED_VERDE at RC1_bit;
 sbit LED_AZUL at RC2_bit;
@@ -97,7 +97,39 @@ void piscaLedsMs(int ms)
  myDelayMs(meio);
 }
 
+
+void DoNotPiscaLedsMs(int ms)
+{
+ int meio = 0;
+ meio = ms/2;
+
+ LED_VERMELHO = 0;
+ LED_VERDE = 0;
+ LED_AZUL = 0;
+ myDelayMs(meio);
+
+ LED_VERMELHO = 0;
+ LED_VERDE = 0;
+ LED_AZUL = 0;
+ myDelayMs(meio);
+}
+
 void piscaLeds()
+{
+
+ LED_VERMELHO = 1;
+ LED_VERDE = 1;
+ LED_AZUL = 1;
+ Delay_ms(5);
+
+ LED_VERMELHO = 0;
+ LED_VERDE = 0;
+ LED_AZUL = 0;
+ Delay_ms(5);
+}
+
+
+void DoNotPiscaLeds()
 {
 
  LED_VERMELHO = 1;
@@ -181,17 +213,27 @@ void tocaMissao()
 {
  int nota = 0;
  int duracao = 0;
- int ritmo = 1;
+ int ritmo = 2;
  int ralenta = 1;
 
  while (modo == 9)
  {
  for(nota = 0; nota < qtdNotasMissao*2; nota += 2){
  duracao = (missao[nota + 1]*ralenta) / ritmo;
+
+ if(missao[nota] !=  0 )
+ {
  Sound_Play(missao[nota], duracao);
 
+ piscaLedsMs(duracao);
 
- piscaLeds();
+ }
+ else
+ {
+ DoNotPiscaLedsMs(duracao*2);
+
+
+ }
 
  if(SWITCH_1 == 1)
  {

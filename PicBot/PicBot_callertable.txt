@@ -15,5 +15,8 @@ main
 			Div_32x32_U
 			Div_16X16_U
 			Delay_Cyc
-		piscaLeds
+		piscaLedsMs
+			myDelayMs
+		DoNotPiscaLedsMs
+			myDelayMs
 		myDelayMs

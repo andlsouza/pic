@@ -18,6 +18,8 @@
        - melhorias no modo abajur (andlsouza@gmail.com);
      v6.0:
        - toca musica no modo 9 (andlsouza@gmail.com);
+     v7.0:
+       - ruído durante as pausas eliminado.
        
  * Description:
      PicBot software.
@@ -91,7 +93,39 @@ void piscaLedsMs(int ms)
   myDelayMs(meio);
 }
 
+//Para consumir o mesmo tempo de piscaLedsMs() mas com os leds apagados.
+void DoNotPiscaLedsMs(int ms)
+{
+  int meio = 0;
+  meio = ms/2;
+  // Turn ON LEDs:
+  LED_VERMELHO = 0;
+  LED_VERDE = 0;
+  LED_AZUL = 0;
+  myDelayMs(meio);
+  // Turn OFF LEDs:
+  LED_VERMELHO = 0;
+  LED_VERDE = 0;
+  LED_AZUL = 0;
+  myDelayMs(meio);
+}
+
 void piscaLeds()
+{
+  // Turn ON LEDs:
+  LED_VERMELHO = 1;
+  LED_VERDE = 1;
+  LED_AZUL = 1;
+  Delay_ms(5);
+  // Turn OFF LEDs:
+  LED_VERMELHO = 0;
+  LED_VERDE = 0;
+  LED_AZUL = 0;
+  Delay_ms(5);
+}
+
+//Para consumir o mesmo tempo de piscaLeds() mas com os leds apagados.
+void DoNotPiscaLeds()
 {
   // Turn ON LEDs:
   LED_VERMELHO = 1;
@@ -175,18 +209,28 @@ void tocaMissao()
 {
   int nota = 0;
   int duracao = 0;
-  int ritmo = 1; //1 = velocidade normal, 2 = velocidade 2x, 4 = velocidade 4x.
+  int ritmo = 2; //1 = velocidade normal, 2 = velocidade 2x, 4 = velocidade 4x.
   int ralenta = 1; //velocidade / 1
 
   while (modo == 9)
     {
       for(nota = 0; nota < qtdNotasMissao*2; nota += 2){
         duracao = (missao[nota + 1]*ralenta) / ritmo;
-        Sound_Play(missao[nota], duracao);
-        //myDelayMs(duracao); //fica muito lento (usar com ritmo 2x)
-        //piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
-        piscaLeds(); //usar esta
         
+        if(missao[nota] != PAUSA)
+           {
+            Sound_Play(missao[nota], duracao);
+            //myDelayMs(duracao); //fica muito lento (usar com ritmo 2x)
+            piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
+            //piscaLeds();
+            }
+            else
+               {
+                DoNotPiscaLedsMs(duracao*2); //soundplay duration + piscaLeds duration
+                //DoNotpiscaLeds();
+                //DoNotpiscaLeds();
+               }
+               
         if(SWITCH_1 == 1) //se o botão 1 estiver pressionado, então...
            {
             modo = 0; //como esse é o último modo, retorna para o modo 0

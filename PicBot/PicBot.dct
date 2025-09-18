@@ -291,6 +291,8 @@ div_8x8_s
 div_8x8_u
 done
 done_bit
+donotpiscaleds
+donotpiscaledsms
 double2byte
 double2int
 double2longint
