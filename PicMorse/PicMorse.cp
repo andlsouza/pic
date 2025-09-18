@@ -28,7 +28,7 @@ int sos[]={
 };
 
 int qtdNotasSOS = sizeof(sos) / sizeof(sos[0]) / 2;
-#line 28 "C:/Users/souza/Documents/PicMorse/PicMorse.c"
+#line 30 "C:/Users/souza/Documents/PicMorse/PicMorse.c"
 sbit LED_VERMELHO at RD1_bit;
 sbit LED_VERMELHO_Direction at TRISD1_bit;
 
@@ -61,6 +61,18 @@ void piscaLedsMs(int ms)
  myDelayMs(meio);
 }
 
+void DoNotPiscaLedsMs(int ms)
+{
+ int meio = 0;
+ meio = ms/2;
+
+ LED_VERMELHO = 0;
+ myDelayMs(meio);
+
+ LED_VERMELHO = 0;
+ myDelayMs(meio);
+}
+
 void tocaSOS()
 {
  int nota = 0;
@@ -70,13 +82,18 @@ void tocaSOS()
 
  for(nota = 0; nota < qtdNotasSOS*2; nota += 2){
  duracao = (sos[nota + 1]*ralenta) / ritmo;
+ if(sos[nota] !=  0 )
+ {
  Sound_Play(sos[nota], duracao);
  piscaLedsMs(duracao);
  }
+ else
+ {
+ DoNotPiscaLedsMs(duracao*2);
+ }
+ }
 
  myDelayMs(500);
-
-
 }
 
 void main() {

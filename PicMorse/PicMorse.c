@@ -8,6 +8,8 @@
  * Revision History:
      v1.0:
        - initial release (ALS);
+     v2.0:
+       - pause noise fixed.
 
  * Description:
      This is a simple SOS Morse code project.
@@ -57,6 +59,18 @@ void piscaLedsMs(int ms)
   myDelayMs(meio);
 }
 
+void DoNotPiscaLedsMs(int ms) //just to spend the same time as piscaLedsMs
+{
+  int meio = 0;
+  meio = ms/2;
+  // Turn ON LED:
+  LED_VERMELHO = 0;
+  myDelayMs(meio);
+  // Turn OFF LED:
+  LED_VERMELHO = 0;
+  myDelayMs(meio);
+}
+
 void tocaSOS()
 {
   int nota = 0;
@@ -66,13 +80,18 @@ void tocaSOS()
 
   for(nota = 0; nota < qtdNotasSOS*2; nota += 2){
      duracao = (sos[nota + 1]*ralenta) / ritmo;
-     Sound_Play(sos[nota], duracao);
-     piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
+     if(sos[nota] != PAUSA)
+        {
+         Sound_Play(sos[nota], duracao);
+         piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
+        }
+        else //pausa...
+           {
+            DoNotPiscaLedsMs(duracao*2); //soundplay + led duration
+           }
     }
-    
+
   myDelayMs(500); //aguarda um tempo de 500ms.
-  
-  //TODO: NO SOUND HERE!
 }
 
 void main() {

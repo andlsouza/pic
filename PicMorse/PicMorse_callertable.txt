@@ -14,4 +14,6 @@ main
 			Delay_Cyc
 		piscaLedsMs
 			myDelayMs
+		DoNotPiscaLedsMs
+			myDelayMs
 		myDelayMs
