@@ -212,6 +212,7 @@ cmip
 cmip_bit
 comfrem
 compare_double
+cop
 crc16ee
 crc16ee_bit
 crc16ef
@@ -291,7 +292,6 @@ div_8x8_s
 div_8x8_u
 done
 done_bit
-donotpiscaleds
 donotpiscaledsms
 double2byte
 double2int
@@ -656,7 +656,6 @@ lvv2_bit
 lvv3
 lvv3_bit
 main
-missao
 modo
 mul_16x16_s
 mul_16x16_u
@@ -761,7 +760,6 @@ pie1
 pie2
 pir1
 pir2
-piscaleds
 piscaledsms
 pktdis
 pktdis_bit
@@ -804,7 +802,7 @@ pssac0
 pssac0_bit
 pssac1
 pssac1_bit
-qtdnotasmissao
+qtdnotascop
 r
 r_bit
 r_not_w
@@ -1130,7 +1128,7 @@ tmr3on
 tmr3on_bit
 to_
 to__bit
-tocamissao
+tocacop
 tosh
 tosl
 tosu

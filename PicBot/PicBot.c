@@ -20,6 +20,8 @@
        - toca musica no modo 9 (andlsouza@gmail.com);
      v7.0:
        - ruído durante as pausas eliminado.
+     v8.0:
+       - programa simplificado para caber na memória. toca melodia cop.
        
  * Description:
      PicBot software.
@@ -110,35 +112,6 @@ void DoNotPiscaLedsMs(int ms)
   myDelayMs(meio);
 }
 
-void piscaLeds()
-{
-  // Turn ON LEDs:
-  LED_VERMELHO = 1;
-  LED_VERDE = 1;
-  LED_AZUL = 1;
-  Delay_ms(5);
-  // Turn OFF LEDs:
-  LED_VERMELHO = 0;
-  LED_VERDE = 0;
-  LED_AZUL = 0;
-  Delay_ms(5);
-}
-
-//Para consumir o mesmo tempo de piscaLeds() mas com os leds apagados.
-void DoNotPiscaLeds()
-{
-  // Turn ON LEDs:
-  LED_VERMELHO = 1;
-  LED_VERDE = 1;
-  LED_AZUL = 1;
-  Delay_ms(5);
-  // Turn OFF LEDs:
-  LED_VERMELHO = 0;
-  LED_VERDE = 0;
-  LED_AZUL = 0;
-  Delay_ms(5);
-}
-
 void giraLeds()
 {
   int gira = 0;
@@ -205,43 +178,40 @@ void giraLeds()
 
 }
 
-void tocaMissao()
+void tocaCop()
 {
   int nota = 0;
   int duracao = 0;
-  int ritmo = 2; //1 = velocidade normal, 2 = velocidade 2x, 4 = velocidade 4x.
-  int ralenta = 1; //velocidade / 1
+  int ritmo = 3; //1 = velocidade normal, 2 = velocidade 2x, 4 = velocidade 4x.
+  int ralenta = 2; //velocidade / ralenta
+
+  //velocidade aqui: 3/2 = 1.5
 
   while (modo == 9)
     {
-      for(nota = 0; nota < qtdNotasMissao*2; nota += 2){
-        duracao = (missao[nota + 1]*ralenta) / ritmo;
-        
-        if(missao[nota] != PAUSA)
+     for(nota = 0; nota < qtdNotasCop*2; nota += 2)
+       {
+       duracao = (cop[nota + 1]*ralenta) / ritmo;
+       if(cop[nota] != PAUSA)
+         {
+          Sound_Play(cop[nota], duracao);
+          piscaLedsMs(duracao);
+         }
+         else //pausa...
            {
-            Sound_Play(missao[nota], duracao);
-            //myDelayMs(duracao); //fica muito lento (usar com ritmo 2x)
-            piscaLedsMs(duracao); //fica muito lento (usar com ritmo 2x)
-            //piscaLeds();
-            }
-            else
-               {
-                DoNotPiscaLedsMs(duracao*2); //soundplay duration + piscaLeds duration
-                //DoNotpiscaLeds();
-                //DoNotpiscaLeds();
-               }
-               
+            DoNotPiscaLedsMs(duracao*2); //soundplay duration + piscaLeds duration
+           }
+
         if(SWITCH_1 == 1) //se o botão 1 estiver pressionado, então...
            {
             modo = 0; //como esse é o último modo, retorna para o modo 0
             myDelayMs(500); //aguarda um tempo de 500ms.
             break;
            }
-      }
-     myDelayMs(250); //aguarda um tempo de 250ms.
-    }
-  //TODO: NO SOUND HERE!
-
+           
+        }//close for
+       myDelayMs(250); //aguarda um tempo de 250ms.
+     } //close while
 }
 
 void main() {
@@ -327,7 +297,7 @@ void main() {
          }
          else if(modo == 9)
          {
-          tocaMissao();
+          tocaCop();
          }
          else //qualquer outra situação...
            {

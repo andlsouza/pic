@@ -1,46 +1,67 @@
-#line 1 "C:/Users/souza/Documents/PicBot/PicBot.c"
-#line 1 "c:/users/souza/documents/picbot/notas.h"
-#line 1 "c:/users/souza/documents/picbot/melodias.h"
+#line 1 "C:/Users/souza/OneDrive/Documentos/PicBot/PicBot.c"
+#line 1 "c:/users/souza/onedrive/documentos/picbot/notas.h"
+#line 1 "c:/users/souza/onedrive/documentos/picbot/melodias.h"
+#line 12 "c:/users/souza/onedrive/documentos/picbot/melodias.h"
+int cop[]={
+
+ 659 ,  320 ,
+ 784 ,  160 + 80 ,
+ 659 ,  80 + 80 ,
+ 659 ,  80 ,
+ 880 ,  160 ,
+ 659 ,  160 ,
+ 294 ,  160 ,
+
+ 659 ,  320 ,
+ 988 ,  160 + 80 ,
+ 659 ,  80 + 80 ,
+ 659 ,  80 ,
+ 1047 ,  160 ,
+ 988 ,  160 ,
+ 784 ,  160 ,
+
+ 659 ,  160 ,
+ 988 ,  160 ,
+ 1319 ,  160 ,
+ 659 ,  80 ,
+ 294 ,  80 + 80 ,
+ 294 ,  80 ,
+ 494 ,  160 ,
+ 740 ,  160 ,
+ 659 ,  160 + 1280 ,
 
 
+ 659 ,  320 ,
+ 784 ,  160 + 80 ,
+ 659 ,  80 + 80 ,
+ 659 ,  80 ,
+ 880 ,  160 ,
+ 659 ,  160 ,
+ 294 ,  160 ,
 
-int missao[]={
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  466 ,  320 ,  523 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  349 ,  320 ,  370 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  466 ,  320 ,  523 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  349 ,  320 ,  370 ,  320 ,
+ 659 ,  320 ,
+ 988 ,  160 + 80 ,
+ 659 ,  80 + 80 ,
+ 659 ,  80 ,
+ 1047 ,  160 ,
+ 988 ,  160 ,
+ 784 ,  160 ,
 
- 988 ,  160 ,  784 ,  160 ,  587 ,  1280 ,
- 988 ,  160 ,  784 ,  160 ,  277 ,  1280 ,
- 988 ,  160 ,  784 ,  160 ,  262 ,  1280 ,
- 494 ,  160 ,  262 ,  160 ,  0 ,  1280 ,
-
- 494 ,  160 ,  392 ,  160 ,  740 ,  1280 ,
- 494 ,  160 ,  392 ,  160 ,  698 ,  1280 ,
- 494 ,  160 ,  392 ,  160 ,  659 ,  1280 ,
- 659 ,  160 ,  587 ,  160 ,  0 ,  1280 ,
-
-
- 659 ,  160 ,  262 ,  160 ,  392 ,  1280 ,
- 659 ,  160 ,  262 ,  160 ,  370 ,  1280 ,
- 659 ,  160 ,  262 ,  160 ,  349 ,  1280 ,
- 330 ,  160 ,  349 ,  160 ,  0 ,  1280 ,
-
- 988 ,  160 ,  784 ,  160 ,  587 ,  1280 ,
- 988 ,  160 ,  784 ,  160 ,  277 ,  1280 ,
- 988 ,  160 ,  784 ,  160 ,  262 ,  1280 ,
- 494 ,  160 ,  262 ,  160 ,  0 ,  1280 ,
+ 659 ,  160 ,
+ 988 ,  160 ,
+ 1319 ,  160 ,
+ 659 ,  80 ,
+ 294 ,  80 + 80 ,
+ 294 ,  80 ,
+ 494 ,  160 ,
+ 740 ,  160 ,
+ 659 ,  160 + 1280 
 
 
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  466 ,  320 ,  523 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  349 ,  320 ,  370 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  466 ,  320 ,  523 ,  320 ,
- 392 ,  320 ,  0 ,  160 ,  392 ,  160 + 320 ,  349 ,  320 ,  370 ,  320 ,
- 392 ,  640 ,  0 ,  1280 
 };
 
-int qtdNotasMissao = sizeof(missao) / sizeof(missao[0]) / 2;
-#line 40 "C:/Users/souza/Documents/PicBot/PicBot.c"
+int qtdNotasCop = sizeof(cop) / sizeof(cop[0]) / 2;
+#line 42 "C:/Users/souza/OneDrive/Documentos/PicBot/PicBot.c"
 sbit LED_VERMELHO at RC0_bit;
 sbit LED_VERDE at RC1_bit;
 sbit LED_AZUL at RC2_bit;
@@ -114,35 +135,6 @@ void DoNotPiscaLedsMs(int ms)
  myDelayMs(meio);
 }
 
-void piscaLeds()
-{
-
- LED_VERMELHO = 1;
- LED_VERDE = 1;
- LED_AZUL = 1;
- Delay_ms(5);
-
- LED_VERMELHO = 0;
- LED_VERDE = 0;
- LED_AZUL = 0;
- Delay_ms(5);
-}
-
-
-void DoNotPiscaLeds()
-{
-
- LED_VERMELHO = 1;
- LED_VERDE = 1;
- LED_AZUL = 1;
- Delay_ms(5);
-
- LED_VERMELHO = 0;
- LED_VERDE = 0;
- LED_AZUL = 0;
- Delay_ms(5);
-}
-
 void giraLeds()
 {
  int gira = 0;
@@ -209,30 +201,28 @@ void giraLeds()
 
 }
 
-void tocaMissao()
+void tocaCop()
 {
  int nota = 0;
  int duracao = 0;
- int ritmo = 2;
- int ralenta = 1;
+ int ritmo = 3;
+ int ralenta = 2;
+
+
 
  while (modo == 9)
  {
- for(nota = 0; nota < qtdNotasMissao*2; nota += 2){
- duracao = (missao[nota + 1]*ralenta) / ritmo;
-
- if(missao[nota] !=  0 )
+ for(nota = 0; nota < qtdNotasCop*2; nota += 2)
  {
- Sound_Play(missao[nota], duracao);
-
+ duracao = (cop[nota + 1]*ralenta) / ritmo;
+ if(cop[nota] !=  0 )
+ {
+ Sound_Play(cop[nota], duracao);
  piscaLedsMs(duracao);
-
  }
  else
  {
  DoNotPiscaLedsMs(duracao*2);
-
-
  }
 
  if(SWITCH_1 == 1)
@@ -241,11 +231,10 @@ void tocaMissao()
  myDelayMs(500);
  break;
  }
+
  }
  myDelayMs(250);
  }
-
-
 }
 
 void main() {
@@ -331,7 +320,7 @@ void main() {
  }
  else if(modo == 9)
  {
- tocaMissao();
+ tocaCop();
  }
  else
  {

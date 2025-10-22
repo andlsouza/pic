@@ -1,11 +1,11 @@
-0	1	mikroCPIC1618.exe -MSF -DBG -pP18F2550 -DL -O11111114 -fo48 -N"C:\Users\souza\Documents\PicBot\PicBot.mcppi" -SP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\souza\Documents\PicBot\" -IP"C:\Users\souza\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "PicBot.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_Sound.mcl"	 
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F2550 -DL -O11111114 -fo48 -N"C:\Users\souza\OneDrive\Documentos\PicBot\PicBot.mcppi" -SP"C:\Users\souza\OneDrive\Documentos\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\souza\OneDrive\Documentos\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\souza\OneDrive\Documentos\PicBot\" -IP"C:\Users\souza\OneDrive\Documentos\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "PicBot.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_Sound.mcl"	 
 hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]	 
 diagnostics: 0	122	Compilation Started	melodias.h
-diagnostics: 338	123	Compiled Successfully	PicBot.c
+diagnostics: 308	123	Compiled Successfully	PicBot.c
 diagnostics: 0	127	All files Compiled in 78 ms	 
-hint: 0	1144	Used RAM (bytes): 392 (19%)  Free RAM (bytes): 1635 (81%)	Used RAM (bytes): 392 (19%)  Free RAM (bytes): 1635 (81%)
-hint: 0	1144	Used ROM (bytes): 3260 (10%)  Free ROM (bytes): 29508 (90%)	Used ROM (bytes): 3260 (10%)  Free ROM (bytes): 29508 (90%)
+hint: 0	1144	Used RAM (bytes): 216 (11%)  Free RAM (bytes): 1811 (89%)	Used RAM (bytes): 216 (11%)  Free RAM (bytes): 1811 (89%)
+hint: 0	1144	Used ROM (bytes): 3084 (9%)  Free ROM (bytes): 29684 (91%)	Used ROM (bytes): 3084 (9%)  Free ROM (bytes): 29684 (91%)
 diagnostics: 0	125	Project Linked Successfully	PicBot.mcppi
-diagnostics: 0	128	Linked in 31 ms	 
+diagnostics: 0	128	Linked in 15 ms	 
 diagnostics: 0	129	Project 'PicBot.mcppi' completed: 281 ms	 
-diagnostics: 0	103	Finished successfully: 18 set 2025, 15:25:18	PicBot.mcppi
+diagnostics: 0	103	Finished successfully: 22 out 2025, 16:05:57	PicBot.mcppi

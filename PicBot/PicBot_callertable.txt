@@ -5,7 +5,7 @@ main
 	myDelayMs
 	giraLeds
 		myDelayMs
-	tocaMissao
+	tocaCop
 		Mul_16X16_U
 		Div_16x16_S
 			Div_16x16_S_L
